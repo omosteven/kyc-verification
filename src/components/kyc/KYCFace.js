@@ -54,7 +54,7 @@ const KYCFace = () => {
 
                         <Grid container style={{ marginTop: '2em' }}>
                             <Grid item lg={12} md={12} xs={12} sm={12}>
-                                <EachCard style={{ height: '35em' }}>
+                                <EachCard style={{ height: '40em' }}>
                                     <EachCardSegmentNoHover>
                                         <CardTitle><b>Face Identification</b></CardTitle>
                                     </EachCardSegmentNoHover>
@@ -89,15 +89,13 @@ const KYCFace = () => {
 
                             <Grid container spacing={3}>
                                 <Grid item lg={6} md={6} xs={6} sm={6}>
-                                    <Link to='/kyc/first-step/'>
+                                    <Link to='/kyc/middle-step/'>
                                         <CardButton2>Previous</CardButton2>
                                     </Link>
                                 </Grid>
 
                                 <Grid item lg={6} md={6} xs={6} sm={6}>
-                                    <Link to='/kyc/last-step/'>
-                                        <CardButton>Next</CardButton>
-                                    </Link>
+                                    <CardButton>Submit</CardButton>
                                 </Grid>
                             </Grid>
                         </Grid>
