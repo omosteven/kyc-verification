@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Camera, { FACING_MODES, IMAGE_TYPES } from 'react-html5-camera-photo';
 import 'react-html5-camera-photo/build/css/index.css';
 
-import { CardButton, CardButton2, CardTakeCamera, CardSelectField, CardTextField, CardTextFieldName, CardTitle, EachCard, EachCardSegmentNoHover, PageContainer } from '../../styles/kyc/KYCBasicStyle';
+import { CardButton, CardButton2, CardTakeCamera, CardTextFieldName, CardTitle, EachCard, EachCardSegmentNoHover, PageContainer } from '../../styles/kyc/KYCBasicStyle';
 import { KYCStepper } from './KYCStepper';
 import { KYCMiddleData } from './KYCMiddleData';
 
