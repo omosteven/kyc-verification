@@ -183,4 +183,4 @@ margin-top:2em;
 `;
 
 export const CardTakeCamera = styled.div`
-width:5em;`;
+width:100%`;
