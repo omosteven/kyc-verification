@@ -68,7 +68,7 @@ const KYCFace = () => {
                                                 onTakePhotoAnimationDone={(dataUri) => { handleTakePhotoAnimationDone(dataUri); }}
                                                 onCameraError={(error) => { handleCameraError(error); }}
                                                 idealFacingMode={FACING_MODES.ENVIRONMENT}
-                                                idealResolution={{ width: 10, height: '100%' }}
+                                                idealResolution={{ width: 10, height: 10 }}
                                                 imageType={IMAGE_TYPES.JPG}
                                                 imageCompression={0.97}
                                                 isMaxResolution={true}
