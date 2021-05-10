@@ -1,4 +1,4 @@
-## Project Name & Pitch
+## Project Name
 
 KYCTest
 
@@ -37,9 +37,7 @@ To Visit App:
 
 ## Reflection 
 
-This was a 4 hours project built by me. 
-
-Project goals included using technologies learned up until this point and familiarizing myself with documentation for new features.  
+This was a 4 hours project built by me (Steven Omole-Adebomi). 
 
 ### Technologies
  - Material UI
@@ -50,14 +48,14 @@ Project goals included using technologies learned up until this point and famili
 
 ## Folder Structure
 
-### node_modules
-### public
-### src
-##### components
-##### pages
-##### styles
-##### adapters
-### .gitignore
-### package-lock.json
-### package.json
-### README.md
+- node_modules
+- public
+- src
+    - components
+    - pages
+    - styles
+    - adapters
+- .gitignore
+- package-lock.json
+- package.json
+- README.md
