@@ -20,11 +20,13 @@ const KYCFace = () => {
     const [showBtnText, setShowBtnText] = useState('Start Camera');
     const [showInstruction, setShowInstruction] = useState('Choose an Option!');
     const [showErr, setShowErr] = useState(false);
+    const [showImgRes, setShowImRes] = useState(false);
 
     const [imgData, setImgData] = useState('');
 
     const handleCameraState = () => {
         setShowErr(false);
+        setShowImRes(false);
         if (showCamera) {
             setShowCamera(false);
             setShowBtnText('Start Camera');
@@ -44,6 +46,7 @@ const KYCFace = () => {
         setShowBtnText('Start Camera');
         setShowInstruction('Upload Your Image!');
         setShowErr(false);
+        setShowImRes(false);
     }
 
     const handleTakePhoto = (dataUri) => {
@@ -52,6 +55,8 @@ const KYCFace = () => {
         setTimeout(() => {
             setShowCamera(false);
             setShowBtnText('Retake');
+            setShowImRes(true);
+            setShowUploadImage(false);
         }, 2000)
     }
 
@@ -116,7 +121,7 @@ const KYCFace = () => {
                                             )}
 
                                             <CardTakeCamera>
-                                                {showCamera ? (
+                                                {showCamera && (
                                                     <Camera
                                                         onTakePhoto={(dataUri) => { handleTakePhoto(dataUri); }}
                                                         onTakePhotoAnimationDone={(dataUri) => { handleTakePhotoAnimationDone(dataUri); }}
@@ -134,22 +139,21 @@ const KYCFace = () => {
                                                         onCameraStart={(stream) => { handleCameraStart(stream); }}
                                                         onCameraStop={() => { handleCameraStop(); }}
                                                     />
-                                                ) :
-                                                    (
-                                                        <CardImg src={imgData} />
-                                                    )}
+                                                )}
 
-                                                {showUploadImage ? (
+                                                {showUploadImage && (
                                                     <DropzoneArea
                                                         initialFiles={[file]}
                                                         acceptedFiles={['image/*']}
                                                         dropzoneText={"Drag and drop your picture here or click"}
                                                         onChange={(files) => handleUploadImg(files)}
                                                     />
-                                                ) :
-                                                    (
-                                                        <CardImg src={imgData} />
-                                                    )}
+                                                )}
+
+
+                                                {showImgRes && (
+                                                    <CardImg src={imgData} />
+                                                )}
 
                                             </CardTakeCamera>
                                             <Grid container spacing={3}>
