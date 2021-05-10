@@ -26,7 +26,7 @@ export const EachCard = styled.div`
 
 export const EachCardTitle = styled.h5`
   margin-top: 1.5em;
-  color: #A67C49;
+  color: #a67c49;
   text-align: center;
   // font-weight: normal;
 `;
@@ -53,16 +53,6 @@ export const EachCardSegment = styled.div`
   }
 `;
 
-export const CardLeft = styled.div`
-  float: left;
-  display: flex;
-  color: rgba(5, 5, 5, 0.7);
-  // font-weight:bold;
-  margin-top: 1.5em;
-  margin-left: 1em;
-  font-size: 0.85em;
-`;
-
 export const CardTitle = styled.h4`
   float: left;
   display: flex;
@@ -72,24 +62,8 @@ export const CardTitle = styled.h4`
   // font-size: 0.85em;
 `;
 
-export const CardSubtitle = styled.h5`
-  margin-left: 1em;
-  margin-top: -0.5em;
-  color: rgba(5, 5, 5, 0.7);
-  font-weight: normal;
-`;
-
-export const CardRight = styled.div`
-  float: right;
-  display: inline-block;
-  color: rgba(5, 5, 5, 0.7);
-  margin-top: 1.5em;
-  margin-right: 1em;
-  font-size: 0.85em;
-`;
-
 export const CardButton = styled.button`
-  background: #F28705;
+  background: #f28705;
   border-radius: 0.3em;
   width: 100%;
   height: 3em;
@@ -102,8 +76,8 @@ export const CardButton = styled.button`
   outline: none;
   &:hover {
     background: white;
-    color: #F28705;
-    border: 1px solid #F28705;
+    color: #f28705;
+    border: 1px solid #f28705;
   }
 `;
 
@@ -112,17 +86,17 @@ export const CardButton2 = styled.button`
   border-radius: 0.3em;
   width: 100%;
   height: 3em;
-  border: 1px solid #F28705;
-  color: #F28705;
+  border: 1px solid #f28705;
+  color: #f28705;
   margin-top: 3em;
   margin-bottom: 2em;
   cursor: pointer;
   transition: 0.5s background, 0.5s border, 0.5s color;
   outline: none;
   &:hover {
-    background: #F28705;
+    background: #f28705;
     color: white;
-    border: 1px solid #F28705;
+    border: 1px solid #f28705;
   }
 `;
 
@@ -182,3 +156,15 @@ export const CardFileUpload = styled.div`margin-top: 2em;`;
 export const CardTakeCamera = styled.div`width: 100%;`;
 
 export const CardImg = styled.img`width: 100%;`;
+
+export const CardCameraErr = styled.div`
+  background: rgba(5, 5, 5, 0.05);
+  width: 100%;
+  height: 15em;
+  color: #cc0000;
+  font-size: 1em;
+  text-align: center;
+  margin-top: 2em;
+`;
+
+export const CardCameraErrText = styled.h4`opacity: 0.5;`;

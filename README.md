@@ -1,6 +1,6 @@
 ## Project Name
 
-KYCTest
+### KYCTest
 
 An application used to handle client based KYC, built with React, Material UI, Styled Components
 

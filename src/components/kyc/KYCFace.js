@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 
 import { Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import ErrorOutlinedIcon from '@material-ui/icons/ErrorOutlined';
 
 import Camera, { FACING_MODES, IMAGE_TYPES } from 'react-html5-camera-photo';
 import 'react-html5-camera-photo/build/css/index.css';
+import { DropzoneArea } from 'material-ui-dropzone';
 
-import { CardButton, CardButton2, CardImg, CardTakeCamera, CardTextFieldName, CardTitle, EachCard, EachCardSegmentNoHover, PageContainer } from '../../styles/kyc/KYCBasicStyle';
+import { CardButton, CardButton2, CardImg, CardTakeCamera, CardCameraErr, CardCameraErrText, CardTextFieldName, CardTitle, EachCard, EachCardSegmentNoHover, PageContainer } from '../../styles/kyc/KYCBasicStyle';
 import { KYCStepper } from './KYCStepper';
 import { KYCMiddleData } from './KYCMiddleData';
 import { PageTransition } from '../../AppStyle';
@@ -14,45 +16,67 @@ import { PageTransition } from '../../AppStyle';
 const KYCFace = () => {
 
     const [showCamera, setShowCamera] = useState(false);
-
+    const [showUploadImage, setShowUploadImage] = useState(false);
     const [showBtnText, setShowBtnText] = useState('Start Camera');
+    const [showInstruction, setShowInstruction] = useState('Choose an Option!');
+    const [showErr, setShowErr] = useState(false);
 
     const [imgData, setImgData] = useState('');
 
     const handleCameraState = () => {
+        setShowErr(false);
         if (showCamera) {
             setShowCamera(false);
             setShowBtnText('Start Camera');
+            setShowUploadImage(false);
+            setShowInstruction('Choose an Option!');
         } else {
             setShowCamera(true);
             setShowBtnText('Stop Camera');
+            setShowUploadImage(false);
+            setShowInstruction('Capture Your Face');
         }
     }
 
-    function handleTakePhoto(dataUri) {
-        setImgData(dataUri);
+    const handleUploadState = () => {
+        setShowUploadImage(true);
+        setShowCamera(false);
+        setShowBtnText('Start Camera');
+        setShowInstruction('Upload Your Image!');
+        setShowErr(false);
+    }
 
+    const handleTakePhoto = (dataUri) => {
+        setImgData(dataUri);
+        setShowErr(false);
         setTimeout(() => {
             setShowCamera(false);
             setShowBtnText('Retake');
         }, 2000)
     }
 
-    function handleTakePhotoAnimationDone(dataUri) {
-        // Do stuff with the photo...
-        console.log('takePhoto');
+    const handleTakePhotoAnimationDone = (dataUri) => {
+
     }
 
-    function handleCameraError(error) {
-        console.log('handleCameraError', error);
+    const handleCameraError = (error) => {
+        setShowErr(true);
+        setShowCamera(false);
+        setShowUploadImage(false);
     }
 
-    function handleCameraStart(stream) {
-        console.log('handleCameraStart');
+    const handleCameraStart = (stream) => {
     }
 
-    function handleCameraStop() {
-        console.log('handleCameraStop');
+    const handleCameraStop = () => {
+    }
+
+    const file = new File([""], {
+        type: "text/plain",
+    });
+
+    const handleUploadImg = (e) => {
+        console.log('selected', e)
     }
 
     return (
@@ -76,13 +100,20 @@ const KYCFace = () => {
 
                             <Grid container style={{ marginTop: '2em' }}>
                                 <Grid item lg={12} md={12} xs={12} sm={12}>
-                                    <EachCard style={{ height: '48em' }}>
+                                    <EachCard style={{ minHeight: '48em' }}>
                                         <EachCardSegmentNoHover>
                                             <CardTitle><b>Face Identification</b></CardTitle>
                                         </EachCardSegmentNoHover>
 
                                         <EachCardSegmentNoHover>
-                                            <CardTextFieldName>Capture Your Face</CardTextFieldName>
+                                            <CardTextFieldName>{showInstruction}</CardTextFieldName>
+
+                                            {showErr && (
+                                                <CardCameraErr>
+                                                    <ErrorOutlinedIcon style={{ fontSize: '8em' }} />
+                                                    <CardCameraErrText> Unfortunately, your device browser isn't supporting the camera module at the moment</CardCameraErrText>
+                                                </CardCameraErr>
+                                            )}
 
                                             <CardTakeCamera>
                                                 {showCamera ? (
@@ -108,9 +139,27 @@ const KYCFace = () => {
                                                         <CardImg src={imgData} />
                                                     )}
 
-                                            </CardTakeCamera>
-                                            <CardButton onClick={handleCameraState}>{showBtnText}</CardButton>
+                                                {showUploadImage ? (
+                                                    <DropzoneArea
+                                                        initialFiles={[file]}
+                                                        acceptedFiles={['image/*']}
+                                                        dropzoneText={"Drag and drop your picture here or click"}
+                                                        onChange={(files) => handleUploadImg(files)}
+                                                    />
+                                                ) :
+                                                    (
+                                                        <CardImg src={imgData} />
+                                                    )}
 
+                                            </CardTakeCamera>
+                                            <Grid container spacing={3}>
+                                                <Grid item lg={6} md={6} xs={6} sm={6}>
+                                                    <CardButton2 onClick={handleCameraState}>{showBtnText}</CardButton2>
+                                                </Grid>
+                                                <Grid item lg={6} md={6} xs={6} sm={6}>
+                                                    <CardButton2 onClick={handleUploadState}>Or Upload Image</CardButton2>
+                                                </Grid>
+                                            </Grid>
                                         </EachCardSegmentNoHover>
                                     </EachCard>
                                 </Grid>
