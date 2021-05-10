@@ -25,10 +25,10 @@ export const EachCard = styled.div`
 `;
 
 export const EachCardTitle = styled.h5`
-  margin-top: 1.2em;
-  color: rgba(5, 5, 5, 1);
+  margin-top: 1.5em;
+  color: #A67C49;
   text-align: center;
-  font-weight: normal;
+  // font-weight: normal;
 `;
 
 export const EachCardSegmentNoHover = styled.div`
@@ -89,7 +89,7 @@ export const CardRight = styled.div`
 `;
 
 export const CardButton = styled.button`
-  background: rgba(42, 159, 238, 1);
+  background: #F28705;
   border-radius: 0.3em;
   width: 100%;
   height: 3em;
@@ -102,8 +102,8 @@ export const CardButton = styled.button`
   outline: none;
   &:hover {
     background: white;
-    color: rgba(42, 159, 238, 1);
-    border: 1px solid rgba(42, 159, 238, 1);
+    color: #F28705;
+    border: 1px solid #F28705;
   }
 `;
 
@@ -112,17 +112,17 @@ export const CardButton2 = styled.button`
   border-radius: 0.3em;
   width: 100%;
   height: 3em;
-  border: 1px solid rgba(42, 159, 238, 1);
-  color: rgba(42, 159, 238, 1);
+  border: 1px solid #F28705;
+  color: #F28705;
   margin-top: 3em;
   margin-bottom: 2em;
   cursor: pointer;
   transition: 0.5s background, 0.5s border, 0.5s color;
   outline: none;
   &:hover {
-    background: rgba(42, 159, 238, 1);
+    background: #F28705;
     color: white;
-    border: 1px solid rgba(42, 159, 238, 1);
+    border: 1px solid #F28705;
   }
 `;
 
@@ -177,10 +177,8 @@ export const CardTextFieldName = styled.h5`
   color: rgba(5, 5, 5, 1);
 `;
 
+export const CardFileUpload = styled.div`margin-top: 2em;`;
 
-export const CardFileUpload = styled.div`
-margin-top:2em;
-`;
+export const CardTakeCamera = styled.div`width: 100%;`;
 
-export const CardTakeCamera = styled.div`
-width:100%`;
+export const CardImg = styled.img`width: 100%;`;

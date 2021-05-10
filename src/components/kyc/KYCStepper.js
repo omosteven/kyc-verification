@@ -16,7 +16,7 @@ export const KYCStepper = (props) => {
     useEffect(() => {
         if (window.innerWidth < 769) {
             setAlternative(true);
-        }else{
+        } else {
             setAlternative(false)
         }
     }, [alternative])

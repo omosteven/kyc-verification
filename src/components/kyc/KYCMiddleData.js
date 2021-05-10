@@ -21,7 +21,7 @@ export const KYCMiddleData = () => {
 
                 <Grid item lg={4} md={4} xs={12} sm={4}>
                     <EachCard>
-                        <EachCardTitle><p style={{ color: 'rgba(42, 159, 238, 1)', fontSize: '1.1em' }} /> Veried : Not Yet!</EachCardTitle>
+                        <EachCardTitle><p style={{ color: 'rgba(42, 159, 238, 1)', fontSize: '1.1em' }} /> Verified : Not Yet!</EachCardTitle>
                     </EachCard>
                 </Grid>
             </Grid>

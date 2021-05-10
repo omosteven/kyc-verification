@@ -1,4 +1,5 @@
 import React from 'react';
+
 import KYCBasic from '../../components/kyc/KYCBasic';
 
 import Footer from '../../components/util/Footer';
